@@ -1,0 +1,15 @@
+<div class="detail-section" *ngIf="product">
+    <div class="container-fluid">
+        <img src="{{product.imageUrl}}" class="detail-img" alt="">
+        <h3>{{product.name}}</h3>
+        <div class="price">{{product.unitPrice | currency: "USD"}}</div>
+        <button (click)="addToCart()" class="btn btn-secondary">Add to cart</button>
+
+        <hr>
+
+        <h4>Description</h4>
+        <p>{{product.description}}</p>
+
+        <a routerLink="/products" class="mt-5 btn btn-outline-primary">Back to Product List</a>
+    </div>
+</div>

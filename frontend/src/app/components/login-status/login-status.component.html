@@ -1,0 +1,44 @@
+<div class="login-status-header">
+
+    <button *ngIf="(!(_auth.isAuthenticated$ | async)); else isAuth" class="security-btn" (click)="_auth.loginWithPopup()">
+        Login
+    </button>
+
+
+
+    <ng-template #isAuth>
+        <button routerLink="/order-history" class="security-btn ms-1">
+            <i class="bi bi-box-arrow in right"></i>
+            Orders
+        </button>
+
+        <button routerLink="/members" class="security-btn ms-1">Member</button>
+
+        <button *ngIf="(_auth.isAuthenticated$ | async)" 
+        class="btn dropdown-toggle"
+        data-bs-toggle = "dropdown" 
+        aria-expanded="true">
+            <img 
+            src="{{loggedInUser.picture}}" 
+            class="round-circle" alt="Profile picture" height="40" width="40">
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+                <a class="dropdown-item">
+                    <span *ngIf="loggedInUser.name"> 
+                        <b><i class="bi bi-person"></i>{{loggedInUser.name}}</b>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <button class="dropdown-item logout" (click)="logout()">
+                    <i class="bi bi-box-arrow-left"></i>Log out 
+                </button>
+            </li>
+        </ul>
+    </ng-template>
+</div>

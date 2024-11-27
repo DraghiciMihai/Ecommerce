@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="WARN">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <logger name="org.springframework.boot" level="INFO" />
+    <logger name="org.springframework.boot.web" level="INFO" />
+    <logger name="org.apache.catalina.startup" level="INFO" />
+    <logger name="com.ecommerce.project.controller" level="INFO" />
+</configuration>
